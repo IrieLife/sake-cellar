@@ -1,0 +1,14 @@
+[
+  {
+    "id": "sake-001",
+    "name": "赤武 純米吟醸",
+    "image": "assets/images/sake-001.jpg",
+    "rating": 5,
+    "ratingText": "★★★★★☆",
+    "type": "純米吟醸",
+    "brewery": "赤武酒造",
+    "prefecture": "岩手県",
+    "drankDate": "2026-05-18",
+    "comment": "透明感のある甘みと酸。余韻がきれい。"
+  }
+]
