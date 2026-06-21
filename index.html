@@ -1,3 +1,349 @@
-@echo off
-set "ROOT=%~dp0"
-start "" "%ROOT%sake-cellar-mockup.html"
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sake Cellar Mockup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="sake-cellar-mockup.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="メニュー">
+        <div class="brand">
+          <span class="brand-mark">酒</span>
+          <div>
+            <p class="brand-kicker">Personal Sake Archive</p>
+            <h1>Sake Cellar</h1>
+          </div>
+        </div>
+
+        <nav class="main-nav" aria-label="主要ナビゲーション">
+          <a class="nav-item is-active" href="#">コレクション</a>
+          <a class="nav-item" href="#">テイスティング</a>
+          <a class="nav-item" href="#">蔵元マップ</a>
+          <a class="nav-item" href="#">ランキング</a>
+        </nav>
+
+        <section class="side-panel">
+          <p class="panel-label">飲酒ログ</p>
+          <div class="progress-ring" aria-label="登録済み 126 本">
+            <span>126</span>
+            <small>bottles</small>
+          </div>
+          <dl class="mini-stats">
+            <div>
+              <dt>県</dt>
+              <dd>31</dd>
+            </div>
+            <div>
+              <dt>酒造店</dt>
+              <dd>78</dd>
+            </div>
+            <div>
+              <dt>平均評価</dt>
+              <dd>4.2</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <header class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">My tasting journal</p>
+            <h2>飲んだ日本酒を、美しく記録する。</h2>
+            <p>
+              写真、評価、特定名称、酒造店、県名、飲んだ日、コメントをひと目で見返せる個人用アーカイブ。
+              100本以上の記録でも探しやすい一覧設計です。
+            </p>
+          </div>
+
+          <form class="quick-add" aria-label="新規登録フォーム">
+            <div class="photo-uploader">
+              <input id="bottle-photo" type="file" accept="image/*" />
+              <label for="bottle-photo">
+                <span class="camera-icon">＋</span>
+                <strong>画像を添付</strong>
+                <small>カードにデフォルト表示</small>
+              </label>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                銘柄
+                <input type="text" value="楽器正宗 中取り" />
+              </label>
+              <label>
+                評価
+                <select>
+                  <option>★★★★★★</option>
+                  <option selected>★★★★★☆</option>
+                  <option>★★★★☆☆</option>
+                  <option>★★★☆☆☆</option>
+                  <option>★★☆☆☆☆</option>
+                  <option>★☆☆☆☆☆</option>
+                </select>
+              </label>
+              <label>
+                特定名称
+                <select>
+                  <option>純米大吟醸</option>
+                  <option selected>純米吟醸</option>
+                  <option>純米</option>
+                  <option>本醸造</option>
+                  <option>普通酒</option>
+                </select>
+              </label>
+              <label>
+                酒造店
+                <input type="text" value="大木代吉本店" />
+              </label>
+              <label>
+                県名
+                <input type="text" value="福島県" />
+              </label>
+              <label>
+                飲んだ日
+                <input type="date" value="2026-05-10" />
+              </label>
+            </div>
+
+            <label class="comment-field">
+              コメント
+              <textarea rows="3">フレッシュで軽快。食中でも単体でも飲みやすく、香りの余韻がきれい。</textarea>
+            </label>
+
+            <button type="button">この内容で追加</button>
+          </form>
+        </header>
+
+        <section class="toolbar" aria-label="検索と絞り込み">
+          <label class="search-box">
+            <span>Search</span>
+            <input type="search" placeholder="銘柄、酒造店、県名、コメントで検索" />
+          </label>
+
+          <div class="filter-group" aria-label="絞り込み条件">
+            <button class="chip is-selected" type="button">すべて</button>
+            <button class="chip" type="button">★★★★★☆以上</button>
+            <button class="chip" type="button">純米吟醸</button>
+            <button class="chip" type="button">東北</button>
+            <button class="chip" type="button">最近飲んだ</button>
+          </div>
+        </section>
+
+        <section class="section-heading">
+          <div>
+            <p class="eyebrow">Collection</p>
+            <h2>最近の記録</h2>
+          </div>
+          <button class="view-toggle" type="button">カード表示</button>
+        </section>
+
+        <section class="sake-grid" aria-label="日本酒一覧">
+          <article class="sake-card">
+            <div class="bottle-art bottle-01" role="img" aria-label="日本酒ボトル画像">
+              <span class="bottle-neck"></span>
+              <span class="bottle-body"><i>AKABU</i></span>
+            </div>
+            <div class="card-body">
+              <div class="card-topline">
+                <span class="type-tag">純米吟醸</span>
+                <span class="stars">★★★★★☆</span>
+              </div>
+              <h3>赤武 純米吟醸</h3>
+              <dl>
+                <div>
+                  <dt>酒造店</dt>
+                  <dd>赤武酒造</dd>
+                </div>
+                <div>
+                  <dt>県名</dt>
+                  <dd>岩手県</dd>
+                </div>
+                <div>
+                  <dt>飲んだ日</dt>
+                  <dd>2026.05.18</dd>
+                </div>
+              </dl>
+              <p>透明感のある甘みと酸。余韻が短すぎず、次の一杯へ自然につながる。</p>
+            </div>
+          </article>
+
+          <article class="sake-card featured">
+            <div class="bottle-art bottle-02" role="img" aria-label="日本酒ボトル画像">
+              <span class="bottle-neck"></span>
+              <span class="bottle-body"><i>SENKIN</i></span>
+            </div>
+            <div class="card-body">
+              <div class="card-topline">
+                <span class="type-tag">純米大吟醸</span>
+                <span class="stars">★★★★★★</span>
+              </div>
+              <h3>仙禽 オーガニック ナチュール</h3>
+              <dl>
+                <div>
+                  <dt>酒造店</dt>
+                  <dd>せんきん</dd>
+                </div>
+                <div>
+                  <dt>県名</dt>
+                  <dd>栃木県</dd>
+                </div>
+                <div>
+                  <dt>飲んだ日</dt>
+                  <dd>2026.05.12</dd>
+                </div>
+              </dl>
+              <p>酸の輪郭が鮮やか。白ワインのようなニュアンスで、香りとキレのバランスが最高。</p>
+            </div>
+          </article>
+
+          <article class="sake-card">
+            <div class="bottle-art bottle-03" role="img" aria-label="日本酒ボトル画像">
+              <span class="bottle-neck"></span>
+              <span class="bottle-body"><i>KID</i></span>
+            </div>
+            <div class="card-body">
+              <div class="card-topline">
+                <span class="type-tag">純米</span>
+                <span class="stars">★★★★☆☆</span>
+              </div>
+              <h3>紀土 KID 純米酒</h3>
+              <dl>
+                <div>
+                  <dt>酒造店</dt>
+                  <dd>平和酒造</dd>
+                </div>
+                <div>
+                  <dt>県名</dt>
+                  <dd>和歌山県</dd>
+                </div>
+                <div>
+                  <dt>飲んだ日</dt>
+                  <dd>2026.04.29</dd>
+                </div>
+              </dl>
+              <p>やわらかい口当たり。派手すぎず、普段の食事にすっと馴染む万能タイプ。</p>
+            </div>
+          </article>
+
+          <article class="sake-card">
+            <div class="bottle-art bottle-04" role="img" aria-label="日本酒ボトル画像">
+              <span class="bottle-neck"></span>
+              <span class="bottle-body"><i>DASSAI</i></span>
+            </div>
+            <div class="card-body">
+              <div class="card-topline">
+                <span class="type-tag">純米大吟醸</span>
+                <span class="stars">★★★★★☆</span>
+              </div>
+              <h3>獺祭 磨き三割九分</h3>
+              <dl>
+                <div>
+                  <dt>酒造店</dt>
+                  <dd>旭酒造</dd>
+                </div>
+                <div>
+                  <dt>県名</dt>
+                  <dd>山口県</dd>
+                </div>
+                <div>
+                  <dt>飲んだ日</dt>
+                  <dd>2026.04.16</dd>
+                </div>
+              </dl>
+              <p>上品な吟醸香。温度が少し上がると米の甘みが出て、印象がふくらむ。</p>
+            </div>
+          </article>
+
+          <article class="sake-card">
+            <div class="bottle-art bottle-05" role="img" aria-label="日本酒ボトル画像">
+              <span class="bottle-neck"></span>
+              <span class="bottle-body"><i>MIYASAKA</i></span>
+            </div>
+            <div class="card-body">
+              <div class="card-topline">
+                <span class="type-tag">本醸造</span>
+                <span class="stars">★★★★☆☆</span>
+              </div>
+              <h3>真澄 辛口生一本</h3>
+              <dl>
+                <div>
+                  <dt>酒造店</dt>
+                  <dd>宮坂醸造</dd>
+                </div>
+                <div>
+                  <dt>県名</dt>
+                  <dd>長野県</dd>
+                </div>
+                <div>
+                  <dt>飲んだ日</dt>
+                  <dd>2026.03.30</dd>
+                </div>
+              </dl>
+              <p>キレがよく、燗でも冷でも使いやすい。和食に合わせて常備したい一本。</p>
+            </div>
+          </article>
+
+          <article class="sake-card add-card" aria-label="新しい日本酒を追加">
+            <div>
+              <span class="add-icon">＋</span>
+              <h3>新しい一本を記録</h3>
+              <p>写真、評価、コメント、飲んだ日を追加してコレクションへ。</p>
+            </div>
+          </article>
+        </section>
+
+        <section class="table-section" aria-label="一覧テーブル">
+          <div class="section-heading compact">
+            <div>
+              <p class="eyebrow">Database</p>
+              <h2>100本以上でも管理しやすい一覧</h2>
+            </div>
+          </div>
+          <div class="data-table" role="table" aria-label="日本酒データ一覧">
+            <div class="table-row table-head" role="row">
+              <span role="columnheader">銘柄</span>
+              <span role="columnheader">評価</span>
+              <span role="columnheader">特定名称</span>
+              <span role="columnheader">酒造店</span>
+              <span role="columnheader">県名</span>
+              <span role="columnheader">飲んだ日</span>
+            </div>
+            <div class="table-row" role="row">
+              <span role="cell">赤武 純米吟醸</span>
+              <span role="cell">★★★★★☆</span>
+              <span role="cell">純米吟醸</span>
+              <span role="cell">赤武酒造</span>
+              <span role="cell">岩手県</span>
+              <span role="cell">2026.05.18</span>
+            </div>
+            <div class="table-row" role="row">
+              <span role="cell">仙禽 ナチュール</span>
+              <span role="cell">★★★★★★</span>
+              <span role="cell">純米大吟醸</span>
+              <span role="cell">せんきん</span>
+              <span role="cell">栃木県</span>
+              <span role="cell">2026.05.12</span>
+            </div>
+            <div class="table-row" role="row">
+              <span role="cell">紀土 KID 純米酒</span>
+              <span role="cell">★★★★☆☆</span>
+              <span role="cell">純米</span>
+              <span role="cell">平和酒造</span>
+              <span role="cell">和歌山県</span>
+              <span role="cell">2026.04.29</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
