@@ -29,6 +29,7 @@ const matchesSearch = (sake) => {
   if (!query) return true;
   const haystack = normalize([
     sake.name,
+    sake.reading,
     sake.ratingText,
     sake.type,
     sake.brewery,
@@ -81,6 +82,7 @@ const renderCards = (sakes) => {
           <span class="stars">${escapeHtml(sake.ratingText || "未評価")}</span>
         </div>
         <h3>${escapeHtml(sake.name || "名称未設定")}</h3>
+        ${sake.reading ? `<p class="sake-reading">読み方: ${escapeHtml(sake.reading)}</p>` : ""}
         <dl>
           <div><dt>酒造店</dt><dd>${escapeHtml(sake.brewery || "不明")}</dd></div>
           <div><dt>県名</dt><dd>${escapeHtml(sake.prefecture || "不明")}</dd></div>
@@ -102,6 +104,7 @@ const renderTable = (sakes) => {
   tableBody.innerHTML = sakes.map((sake) => `
     <div class="table-row" role="row">
       <span role="cell">${escapeHtml(sake.name || "名称未設定")}</span>
+      <span role="cell">${escapeHtml(sake.reading || "-")}</span>
       <span role="cell">${escapeHtml(sake.ratingText || "未評価")}</span>
       <span role="cell">${escapeHtml(sake.type || "不明")}</span>
       <span role="cell">${escapeHtml(sake.brewery || "不明")}</span>
