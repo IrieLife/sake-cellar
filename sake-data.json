@@ -1,14 +1,333 @@
 [
   {
-    "id": "sake-001",
-    "name": "赤武 純米吟醸",
-    "image": "assets/images/sake-001.jpg",
+    "id": "sake-0001",
+    "name": "作",
+    "image": "assets/images/sake-0001.jpg",
+    "images": [
+      "assets/images/sake-0001.jpg"
+    ],
     "rating": 5,
     "ratingText": "★★★★★☆",
-    "type": "純米吟醸",
-    "brewery": "赤武酒造",
+    "type": "不明",
+    "prefecture": "三重県",
+    "brewery": "清水酒造",
+    "drankDate": "",
+    "comment": "【かんだ光壽】男酒感がある。辛口"
+  },
+  {
+    "id": "sake-0002",
+    "name": "磯自慢",
+    "image": "assets/images/sake-0002.jpg",
+    "images": [
+      "assets/images/sake-0002.jpg"
+    ],
+    "rating": 5,
+    "ratingText": "★★★★★☆",
+    "type": "吟醸",
+    "prefecture": "静岡県",
+    "brewery": "磯自慢酒造",
+    "drankDate": "",
+    "comment": "【かんだ光壽】女性らしい。みずみずしい"
+  },
+  {
+    "id": "sake-0003",
+    "name": "鳳凰美田",
+    "image": "assets/images/sake-0003.jpg",
+    "images": [
+      "assets/images/sake-0003.jpg"
+    ],
+    "rating": 6,
+    "ratingText": "★★★★★★",
+    "type": "生酒/山田錦5割磨き",
+    "prefecture": "栃木県",
+    "brewery": "小林酒造",
+    "drankDate": "",
+    "comment": "【かんだ光壽】艶っぽく、みずみずしい"
+  },
+  {
+    "id": "sake-0004",
+    "name": "初亀",
+    "image": "assets/images/sake-0004.jpg",
+    "images": [
+      "assets/images/sake-0004.jpg"
+    ],
+    "rating": 4,
+    "ratingText": "★★★★☆☆",
+    "type": "不明",
+    "prefecture": "静岡県",
+    "brewery": "初亀酒造",
+    "drankDate": "",
+    "comment": "【かんだ光壽】ふくよかさあり"
+  },
+  {
+    "id": "sake-0005",
+    "name": "松の寿",
+    "image": "assets/images/sake-0005.jpg",
+    "images": [
+      "assets/images/sake-0005.jpg"
+    ],
+    "rating": 5,
+    "ratingText": "★★★★★☆",
+    "type": "純米吟醸/袋吊り瓶囲い",
+    "prefecture": "栃木県",
+    "brewery": "松井酒造",
+    "drankDate": "",
+    "comment": "【かんだ光壽】なし"
+  },
+  {
+    "id": "sake-0006",
+    "name": "南",
+    "image": "assets/images/sake-0006.jpg",
+    "images": [
+      "assets/images/sake-0006.jpg"
+    ],
+    "rating": 6,
+    "ratingText": "★★★★★★",
+    "type": "純米大吟醸/無濾過生原酒",
+    "prefecture": "高知県",
+    "brewery": "南酒造場（みなみしゅぞう）",
+    "drankDate": "",
+    "comment": "【かんだ光壽】辛口の大吟醸"
+  },
+  {
+    "id": "sake-0007",
+    "name": "姿",
+    "image": "assets/images/sake-0007.jpg",
+    "images": [
+      "assets/images/sake-0007.jpg"
+    ],
+    "rating": 4,
+    "ratingText": "★★★★☆☆",
+    "type": "純米大吟醸/袋吊り瓶囲い",
+    "prefecture": "栃木県",
+    "brewery": "飯沼銘醸",
+    "drankDate": "",
+    "comment": "【かんだ光壽】ちょい飽きる"
+  },
+  {
+    "id": "sake-0008",
+    "name": "義侠",
+    "image": "assets/images/sake-0008.jpg",
+    "images": [
+      "assets/images/sake-0008.jpg"
+    ],
+    "rating": 6,
+    "ratingText": "★★★★★★",
+    "type": "原酒",
+    "prefecture": "愛知県",
+    "brewery": "山忠本家酒造",
+    "drankDate": "",
+    "comment": "【かんだ光壽】辛口"
+  },
+  {
+    "id": "sake-0009",
+    "name": "かんだ光壽[こうじゅ]【日本酒専門店】1",
+    "image": "assets/images/sake-0009.jpg",
+    "images": [
+      "assets/images/sake-0009.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "",
+    "type": "",
+    "prefecture": "",
+    "brewery": "",
+    "drankDate": "",
+    "comment": ""
+  },
+  {
+    "id": "sake-0010",
+    "name": "かんだ光壽[こうじゅ]【日本酒専門店】2",
+    "image": "assets/images/sake-0010.jpg",
+    "images": [
+      "assets/images/sake-0010.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "",
+    "type": "",
+    "prefecture": "",
+    "brewery": "",
+    "drankDate": "",
+    "comment": ""
+  },
+  {
+    "id": "sake-0011",
+    "name": "澤の花　ひまり",
+    "image": "assets/images/sake-0011.jpg",
+    "images": [
+      "assets/images/sake-0011.jpg"
+    ],
+    "rating": 2,
+    "ratingText": "★★☆☆☆☆",
+    "type": "辛口純米",
+    "prefecture": "長野県",
+    "brewery": "伴野酒造",
+    "drankDate": "",
+    "comment": "バルラボ日本酒会にて。"
+  },
+  {
+    "id": "sake-0012",
+    "name": "満寿泉",
+    "image": "assets/images/sake-0012.jpg",
+    "images": [
+      "assets/images/sake-0012.jpg"
+    ],
+    "rating": 5,
+    "ratingText": "★★★★★☆",
+    "type": "生酒/貴釀酒",
+    "prefecture": "富山県",
+    "brewery": "桝田酒造店",
+    "drankDate": "",
+    "comment": "バルラボ日本酒会にて。糖度が高く、フルーティなジュースのよう。食後酒"
+  },
+  {
+    "id": "sake-0013",
+    "name": "澤乃井・亀口酒",
+    "image": "assets/images/sake-0013.jpg",
+    "images": [
+      "assets/images/sake-0013.jpg"
+    ],
+    "rating": 3,
+    "ratingText": "★★★☆☆☆",
+    "type": "純米・大辛口",
+    "prefecture": "東京都",
+    "brewery": "澤乃井酒造",
+    "drankDate": "",
+    "comment": "澤乃井酒造見学にて。"
+  },
+  {
+    "id": "sake-0014",
+    "name": "写楽",
+    "image": "assets/images/sake-0014.jpg",
+    "images": [
+      "assets/images/sake-0014.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "☆☆☆☆☆☆",
+    "type": "純米吟醸/五百万石",
+    "prefecture": "福島県",
+    "brewery": "宮泉銘醸",
+    "drankDate": "",
+    "comment": "日本酒原価酒場にて。評価不明"
+  },
+  {
+    "id": "sake-0015",
+    "name": "ちえびじん",
+    "image": "assets/images/sake-0015.jpg",
+    "images": [
+      "assets/images/sake-0015.jpg",
+      "assets/images/sake-0016.jpg"
+    ],
+    "rating": 3,
+    "ratingText": "★★★☆☆☆",
+    "type": "純米・搾りたて・生酒",
+    "prefecture": "大分県",
+    "brewery": "中野酒造",
+    "drankDate": "",
+    "comment": "大門の日本酒専門店 萬亮にて。記憶にないが、確か生酒らしい味わいだったかと。"
+  },
+  {
+    "id": "sake-0017",
+    "name": "あらま",
+    "image": "assets/images/sake-0017.jpg",
+    "images": [
+      "assets/images/sake-0017.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "☆☆☆☆☆☆",
+    "type": "純米・無ろ過生原酒/協会6号酵母",
     "prefecture": "岩手県",
-    "drankDate": "2026-06-21",
-    "comment": "透明感のある甘みと酸。余韻がきれい。"
+    "brewery": "喜久盛酒造",
+    "drankDate": "",
+    "comment": "新宿　酛[もと]⇒移転した。評価不明"
+  },
+  {
+    "id": "sake-0018",
+    "name": "凛峰",
+    "image": "assets/images/sake-0018.jpg",
+    "images": [
+      "assets/images/sake-0018.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "☆☆☆☆☆☆",
+    "type": "純米・山廃/備前雄町/火入れ",
+    "prefecture": "神奈川県",
+    "brewery": "川西屋酒造店",
+    "drankDate": "",
+    "comment": "新宿　酛[もと]⇒移転した。評価不明。2014年"
+  },
+  {
+    "id": "sake-0019",
+    "name": "竹泉[ちくせん]",
+    "image": "assets/images/sake-0019.jpg",
+    "images": [
+      "assets/images/sake-0019.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "☆☆☆☆☆☆",
+    "type": "不明",
+    "prefecture": "兵庫県",
+    "brewery": "田治米合名会社",
+    "drankDate": "",
+    "comment": "新宿　酛[もと]⇒移転した。評価不明"
+  },
+  {
+    "id": "sake-0020",
+    "name": "游",
+    "image": "assets/images/sake-0020.jpg",
+    "images": [
+      "assets/images/sake-0020.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "☆☆☆☆☆☆",
+    "type": "純米吟醸・芳醇超辛口",
+    "prefecture": "福井県",
+    "brewery": "吉田酒造",
+    "drankDate": "",
+    "comment": "池袋 方舟にて。評価不明"
+  },
+  {
+    "id": "sake-0021",
+    "name": "雪男",
+    "image": "assets/images/sake-0021.jpg",
+    "images": [
+      "assets/images/sake-0021.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "☆☆☆☆☆☆",
+    "type": "本醸造",
+    "prefecture": "新潟県",
+    "brewery": "青木酒",
+    "drankDate": "",
+    "comment": "池袋 方舟にて。評価不明"
+  },
+  {
+    "id": "sake-0022",
+    "name": "春鹿",
+    "image": "assets/images/sake-0022.jpg",
+    "images": [
+      "assets/images/sake-0022.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "☆☆☆☆☆☆",
+    "type": "純米・超辛口",
+    "prefecture": "奈良県",
+    "brewery": "今西清兵衛商店",
+    "drankDate": "",
+    "comment": "池袋　酒菜家[さかなや]にて。評価不明"
+  },
+  {
+    "id": "sake-0023",
+    "name": "中乗さん[なかのり]",
+    "image": "assets/images/sake-0023.jpg",
+    "images": [
+      "assets/images/sake-0023.jpg"
+    ],
+    "rating": 0,
+    "ratingText": "☆☆☆☆☆☆",
+    "type": "辛口生/美山錦",
+    "prefecture": "長野県",
+    "brewery": "中善酒造",
+    "drankDate": "",
+    "comment": "池袋 方舟にて。評価不明"
   }
 ]

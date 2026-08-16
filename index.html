@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Sake Cellar Mockup</title>
+    <title>Sake Cellar</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -32,22 +32,22 @@
 
         <section class="side-panel">
           <p class="panel-label">飲酒ログ</p>
-          <div class="progress-ring" aria-label="登録済み 126 本">
-            <span>126</span>
+          <div class="progress-ring" aria-label="登録済み本数">
+            <span id="totalBottles">0</span>
             <small>bottles</small>
           </div>
           <dl class="mini-stats">
             <div>
               <dt>県</dt>
-              <dd>31</dd>
+              <dd id="prefectureCount">0</dd>
             </div>
             <div>
               <dt>酒造店</dt>
-              <dd>78</dd>
+              <dd id="breweryCount">0</dd>
             </div>
             <div>
               <dt>平均評価</dt>
-              <dd>4.2</dd>
+              <dd id="averageRating">0.0</dd>
             </div>
           </dl>
         </section>
@@ -70,7 +70,7 @@
               <label for="bottle-photo">
                 <span class="camera-icon">＋</span>
                 <strong>画像を添付</strong>
-                <small>カードにデフォルト表示</small>
+                <small>将来の追加フォーム用モック</small>
               </label>
             </div>
 
@@ -126,24 +126,24 @@
         <section class="toolbar" aria-label="検索と絞り込み">
           <label class="search-box">
             <span>Search</span>
-            <input type="search" placeholder="銘柄、酒造店、県名、コメントで検索" />
+            <input id="sakeSearch" type="search" placeholder="銘柄、酒造店、県名、コメントで検索" />
           </label>
 
           <div class="filter-group" aria-label="絞り込み条件">
-            <button class="chip is-selected" type="button">すべて</button>
-            <button class="chip" type="button">★★★★★☆以上</button>
-            <button class="chip" type="button">純米吟醸</button>
-            <button class="chip" type="button">東北</button>
-            <button class="chip" type="button">最近飲んだ</button>
+            <button class="chip is-selected" type="button" data-filter="all">すべて</button>
+            <button class="chip" type="button" data-filter="high-rating">★★★★★☆以上</button>
+            <button class="chip" type="button" data-filter="junmai-ginjo">純米吟醸</button>
+            <button class="chip" type="button" data-filter="tohoku">東北</button>
+            <button class="chip" type="button" data-filter="has-comment">コメントあり</button>
           </div>
         </section>
 
         <section class="section-heading">
           <div>
             <p class="eyebrow">Collection</p>
-            <h2>最近の記録</h2>
+            <h2>日本酒コレクション</h2>
           </div>
-          <button class="view-toggle" type="button">カード表示</button>
+          <button class="view-toggle" type="button" id="visibleCount">0本表示</button>
         </section>
 
         <section class="sake-grid" id="sakeGrid" aria-label="日本酒一覧"></section>
@@ -164,59 +164,12 @@
               <span role="columnheader">県名</span>
               <span role="columnheader">飲んだ日</span>
             </div>
-            <div class="table-row" role="row">
-              <span role="cell">赤武 純米吟醸</span>
-              <span role="cell">★★★★★☆</span>
-              <span role="cell">純米吟醸</span>
-              <span role="cell">赤武酒造</span>
-              <span role="cell">岩手県</span>
-              <span role="cell">2026.05.18</span>
-            </div>
-            <div class="table-row" role="row">
-              <span role="cell">仙禽 ナチュール</span>
-              <span role="cell">★★★★★★</span>
-              <span role="cell">純米大吟醸</span>
-              <span role="cell">せんきん</span>
-              <span role="cell">栃木県</span>
-              <span role="cell">2026.05.12</span>
-            </div>
-            <div class="table-row" role="row">
-              <span role="cell">紀土 KID 純米酒</span>
-              <span role="cell">★★★★☆☆</span>
-              <span role="cell">純米</span>
-              <span role="cell">平和酒造</span>
-              <span role="cell">和歌山県</span>
-              <span role="cell">2026.04.29</span>
-            </div>
+            <div class="table-body" id="sakeTableBody"></div>
           </div>
         </section>
       </main>
     </div>
-    <script>
-      fetch("sake-data.json")
-        .then((response) => response.json())
-        .then((sakes) => {
-          const grid = document.getElementById("sakeGrid");
-    
-          grid.innerHTML = sakes.map((sake) => `
-            <article class="sake-card">
-              <img src="${sake.image}" alt="${sake.name}" class="sake-photo">
-              <div class="card-body">
-                <div class="card-topline">
-                  <span class="type-tag">${sake.type}</span>
-                  <span class="stars">${sake.ratingText}</span>
-                </div>
-                <h3>${sake.name}</h3>
-                <dl>
-                  <div><dt>酒造店</dt><dd>${sake.brewery}</dd></div>
-                  <div><dt>県名</dt><dd>${sake.prefecture}</dd></div>
-                  <div><dt>飲んだ日</dt><dd>${sake.drankDate}</dd></div>
-                </dl>
-                <p>${sake.comment}</p>
-              </div>
-            </article>
-          `).join("");
-        });
-    </script>
+
+    <script src="sake-app.js"></script>
   </body>
 </html>
