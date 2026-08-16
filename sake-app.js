@@ -178,7 +178,7 @@ const bindFilters = () => {
   }
 };
 
-fetch("sake-data.json?v=20260816-reading-v2")
+fetch("sake-data.json?v=20260816-notranslate-v1")
   .then((response) => {
     if (!response.ok) throw new Error(`sake-data.jsonを読み込めませんでした: ${response.status}`);
     return response.json();

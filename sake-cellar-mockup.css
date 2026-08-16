@@ -194,11 +194,16 @@ button {
 }
 
 .hero-copy h2 {
-  max-width: 13ch;
+  max-width: 10.5em;
   margin: 0.55rem 0 1rem;
-  font-size: clamp(2.9rem, 6vw, 6.2rem);
+  font-size: clamp(2.7rem, 4.6vw, 5.15rem);
   font-weight: 900;
-  line-height: 1.02;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.hero-copy h2 span {
+  display: block;
 }
 
 .hero-copy p:last-child {
@@ -679,7 +684,7 @@ textarea:focus {
   }
 
   .hero-copy h2 {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
   }
 
   .form-grid,
