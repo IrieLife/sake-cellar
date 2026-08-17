@@ -5,6 +5,10 @@ const state = {
 };
 
 const tohokuPrefs = new Set(["青森県", "岩手県", "宮城県", "秋田県", "山形県", "福島県"]);
+const visitorCounterConfig = {
+  goatCounterCode: "",
+  adminStorageKey: "sake-cellar-admin-visitor",
+};
 
 const escapeHtml = (value) =>
   String(value ?? "")
@@ -84,11 +88,11 @@ const renderCards = (sakes) => {
         <h3>${escapeHtml(sake.name || "名称未設定")}</h3>
         ${sake.reading ? `<p class="sake-reading">読み方: ${escapeHtml(sake.reading)}</p>` : ""}
         <dl>
-          <div><dt>酒造店</dt><dd>${escapeHtml(sake.brewery || "不明")}</dd></div>
           <div><dt>県名</dt><dd>${escapeHtml(sake.prefecture || "不明")}</dd></div>
+          <div><dt>酒造名</dt><dd>${escapeHtml(sake.brewery || "不明")}</dd></div>
           <div><dt>飲んだ日</dt><dd>${escapeHtml(sake.drankDate || "未設定")}</dd></div>
+          <div class="comment-row"><dt>コメント</dt><dd>${escapeHtml(sake.comment || "コメント未設定")}</dd></div>
         </dl>
-        <p>${escapeHtml(sake.comment || "コメント未設定")}</p>
       </div>
     </article>
   `).join("");
@@ -107,11 +111,70 @@ const renderTable = (sakes) => {
       <span role="cell">${escapeHtml(sake.reading || "-")}</span>
       <span role="cell">${escapeHtml(sake.ratingText || "未評価")}</span>
       <span role="cell">${escapeHtml(sake.type || "不明")}</span>
-      <span role="cell">${escapeHtml(sake.brewery || "不明")}</span>
       <span role="cell">${escapeHtml(sake.prefecture || "不明")}</span>
+      <span role="cell">${escapeHtml(sake.brewery || "不明")}</span>
       <span role="cell">${escapeHtml(sake.drankDate || "未設定")}</span>
+      <span role="cell">${escapeHtml(sake.comment || "コメント未設定")}</span>
     </div>
   `).join("");
+};
+
+const isAdminVisitor = () => {
+  const params = new URLSearchParams(window.location.search);
+  const adminParam = params.get("admin");
+
+  try {
+    if (adminParam === "1") localStorage.setItem(visitorCounterConfig.adminStorageKey, "1");
+    if (adminParam === "0") localStorage.removeItem(visitorCounterConfig.adminStorageKey);
+    return localStorage.getItem(visitorCounterConfig.adminStorageKey) === "1";
+  } catch {
+    return adminParam === "1";
+  }
+};
+
+const setVisitorCounterState = (count, status, isAdmin = false) => {
+  const badge = document.getElementById("visitorBadge");
+  const countEl = document.getElementById("visitorCount");
+  const statusEl = document.getElementById("visitorStatus");
+  if (!badge || !countEl || !statusEl) return;
+
+  badge.classList.toggle("is-admin", isAdmin);
+  countEl.textContent = count;
+  statusEl.textContent = status;
+};
+
+const initVisitorCounter = () => {
+  const badge = document.getElementById("visitorBadge");
+  if (!badge) return;
+
+  if (isAdminVisitor()) {
+    setVisitorCounterState("除外中", "管理者アクセス", true);
+    return;
+  }
+
+  const code = visitorCounterConfig.goatCounterCode.trim();
+  if (!code) {
+    setVisitorCounterState("--", "計測サービス未設定");
+    return;
+  }
+
+  const baseUrl = `https://${code}.goatcounter.com`;
+  window.goatcounter = { no_onload: true };
+
+  const script = document.createElement("script");
+  script.src = "https://gc.zgo.at/count.js";
+  script.async = true;
+  script.dataset.goatcounter = `${baseUrl}/count`;
+  script.addEventListener("load", () => {
+    if (window.goatcounter?.count) window.goatcounter.count({});
+
+    fetch(`${baseUrl}/counter/TOTAL.json`)
+      .then((response) => response.ok ? response.json() : Promise.reject(response))
+      .then((data) => setVisitorCounterState(data.count || "--", "累計訪問"))
+      .catch(() => setVisitorCounterState("--", "集計取得不可"));
+  });
+  script.addEventListener("error", () => setVisitorCounterState("--", "集計読込不可"));
+  document.head.appendChild(script);
 };
 
 const renderStats = () => {
@@ -178,7 +241,7 @@ const bindFilters = () => {
   }
 };
 
-fetch("sake-data.json?v=20260816-notranslate-v1")
+fetch("sake-data.json?v=20260817-archive-v1")
   .then((response) => {
     if (!response.ok) throw new Error(`sake-data.jsonを読み込めませんでした: ${response.status}`);
     return response.json();
@@ -188,6 +251,7 @@ fetch("sake-data.json?v=20260816-notranslate-v1")
     renderStats();
     bindFilters();
     render();
+    initVisitorCounter();
   })
   .catch((error) => {
     console.error(error);

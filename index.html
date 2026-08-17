@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Playfair+Display:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="sake-cellar-mockup.css?v=20260816-notranslate-v1" />
+    <link rel="stylesheet" href="sake-cellar-mockup.css?v=20260817-archive-v1" />
   </head>
   <body class="notranslate">
     <div class="app-shell">
@@ -43,7 +43,7 @@
               <dd id="prefectureCount">0</dd>
             </div>
             <div>
-              <dt>酒造店</dt>
+              <dt>酒造名</dt>
               <dd id="breweryCount">0</dd>
             </div>
             <div>
@@ -105,12 +105,12 @@
                 </select>
               </label>
               <label>
-                酒造店
-                <input type="text" value="大木代吉本店" />
-              </label>
-              <label>
                 県名
                 <input type="text" value="福島県" />
+              </label>
+              <label>
+                酒造名
+                <input type="text" value="大木代吉本店" />
               </label>
               <label>
                 飲んだ日
@@ -130,7 +130,7 @@
         <section class="toolbar" aria-label="検索と絞り込み">
           <label class="search-box">
             <span>Search</span>
-            <input id="sakeSearch" type="search" placeholder="銘柄、酒造店、県名、コメントで検索" />
+            <input id="sakeSearch" type="search" placeholder="銘柄、県名、酒造名、コメントで検索" />
           </label>
 
           <div class="filter-group" aria-label="絞り込み条件">
@@ -147,7 +147,14 @@
             <p class="eyebrow">Collection</p>
             <h2>日本酒コレクション</h2>
           </div>
-          <button class="view-toggle" type="button" id="visibleCount">0本表示</button>
+          <div class="heading-actions">
+            <button class="view-toggle" type="button" id="visibleCount">0本表示</button>
+            <div class="visitor-badge" id="visitorBadge" aria-label="サイト訪問者数">
+              <span>訪問者数</span>
+              <strong id="visitorCount">--</strong>
+              <small id="visitorStatus">計測設定待ち</small>
+            </div>
+          </div>
         </section>
 
         <section class="sake-grid" id="sakeGrid" aria-label="日本酒一覧"></section>
@@ -165,9 +172,10 @@
               <span role="columnheader">読み方</span>
               <span role="columnheader">評価</span>
               <span role="columnheader">特定名称</span>
-              <span role="columnheader">酒造店</span>
               <span role="columnheader">県名</span>
+              <span role="columnheader">酒造名</span>
               <span role="columnheader">飲んだ日</span>
+              <span role="columnheader">コメント</span>
             </div>
             <div class="table-body" id="sakeTableBody"></div>
           </div>
@@ -175,6 +183,6 @@
       </main>
     </div>
 
-    <script src="sake-app.js?v=20260816-notranslate-v1"></script>
+    <script src="sake-app.js?v=20260817-archive-v1"></script>
   </body>
 </html>

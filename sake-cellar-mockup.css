@@ -363,6 +363,14 @@ textarea:focus {
   margin: 0 0 1rem;
 }
 
+.heading-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
 .section-heading h2 {
   margin: 0.2rem 0 0;
   font-size: clamp(1.65rem, 3vw, 2.6rem);
@@ -372,6 +380,33 @@ textarea:focus {
 .view-toggle {
   min-height: 2.6rem;
   padding: 0 1rem;
+}
+
+.visitor-badge {
+  min-width: 9.5rem;
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.62rem 0.85rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 241, 0.86);
+}
+
+.visitor-badge span,
+.visitor-badge small {
+  color: var(--muted);
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.visitor-badge strong {
+  color: var(--charcoal);
+  font-size: 1.05rem;
+  line-height: 1.1;
+}
+
+.visitor-badge.is-admin {
+  border-color: rgba(184, 137, 59, 0.45);
+  background: rgba(184, 137, 59, 0.14);
 }
 
 .sake-grid {
@@ -582,7 +617,7 @@ textarea:focus {
 
 .data-table {
   display: grid;
-  min-width: 46rem;
+  min-width: 72rem;
 }
 
 .table-section {
@@ -591,7 +626,7 @@ textarea:focus {
 
 .table-row {
   display: grid;
-  grid-template-columns: 1.5fr 0.9fr 1fr 1.1fr 0.8fr 0.95fr;
+  grid-template-columns: 1.25fr 0.85fr 0.85fr 1fr 0.8fr 1fr 0.9fr 1.4fr;
   gap: 1rem;
   align-items: center;
   min-height: 3.2rem;
@@ -708,6 +743,11 @@ textarea:focus {
   .section-heading {
     align-items: start;
     flex-direction: column;
+  }
+
+  .heading-actions {
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 
