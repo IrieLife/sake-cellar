@@ -87,7 +87,7 @@ button {
   text-transform: uppercase;
 }
 
-.brand h1 {
+.brand-title {
   margin: 0.1rem 0 0;
   font-family: "Playfair Display", serif;
   font-size: 1.85rem;
@@ -193,7 +193,7 @@ button {
   color: #fffaf1;
 }
 
-.hero-copy h2 {
+.hero-copy h1 {
   max-width: 10.5em;
   margin: 0.55rem 0 1rem;
   font-size: clamp(2.7rem, 4.6vw, 5.15rem);
@@ -202,7 +202,7 @@ button {
   text-wrap: balance;
 }
 
-.hero-copy h2 span {
+.hero-copy h1 span {
   display: block;
 }
 
@@ -706,7 +706,7 @@ textarea:focus {
     grid-template-columns: 2.8rem 1fr;
   }
 
-  .brand h1 {
+  .brand-title {
     font-size: 1.55rem;
   }
 
@@ -718,7 +718,7 @@ textarea:focus {
     padding: 1.5rem;
   }
 
-  .hero-copy h2 {
+  .hero-copy h1 {
     font-size: 2.4rem;
   }
 
@@ -845,11 +845,11 @@ textarea:focus {
 }
 
 .data-table {
-  min-width: 54rem;
+  min-width: 72rem;
 }
 
 .table-row {
-  grid-template-columns: 1.25fr 0.9fr 0.9fr 1fr 1.1fr 0.8fr 0.95fr;
+  grid-template-columns: 1.25fr 0.85fr 0.85fr 1fr 0.8fr 1fr 0.9fr 1.4fr;
 }
 
 .empty-state {
@@ -861,6 +861,25 @@ textarea:focus {
   background: rgba(255, 250, 241, 0.76);
   color: var(--muted);
   font-weight: 900;
+}
+
+.seo-fallback {
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border: 1px solid var(--line);
+  background: rgba(255, 250, 241, 0.78);
+}
+
+.seo-fallback h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.seo-fallback ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.8;
 }
 
 @media (max-width: 620px) {
